@@ -16,6 +16,3 @@ def webprint():
         if len(data) != 2:
             error = 'Bad Response from Weather API'
             return render_template('home.html', data=data, error=error)
-
-if __name__ == '__main__':
-    app.run()
