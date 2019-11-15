@@ -1,6 +1,6 @@
 import threading
-from sr import process
-from server import app
+from App.Modules.Speech.sr import process
+from App.server import app
 
 t1 = threading.Thread(target=process)
 t2 = threading.Thread(target=app.run)

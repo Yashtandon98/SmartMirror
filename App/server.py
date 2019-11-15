@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from Modules.Weather.weather import query_api
+from .Modules.Weather.weather import query_api
 from pprint import pprint as pp
 
 app = Flask(__name__)

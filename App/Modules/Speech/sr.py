@@ -1,7 +1,6 @@
 import speech_recognition as sr
 import pyaudio
-from modules.weather.weather import query_api
-from server import webprint, app
+from ..Weather.weather import query_api
 from selenium import webdriver
 
 def process():
