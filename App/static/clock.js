@@ -16,5 +16,5 @@ function rTime() {
     document.getElementById('clock').innerHTML =
     '<h1>' + h + ':' + m + ':' + s + ' ' + ap + '</h1>';
 
-    var t = setTimeout(lclock, 500);
+    var t = setTimeout(rTime, 500);
 }
