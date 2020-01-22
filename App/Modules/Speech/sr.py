@@ -1,7 +1,6 @@
 import speech_recognition as sr
 import pyaudio
-from ..Weather.weather import query_api
-from selenium import webdriver
+from speak import hpage, newslist
 
 def process():
     while 1:
@@ -9,10 +8,11 @@ def process():
 
 def ptext(text):
     if 'home' in text:
-        chromeOptions = webdriver.ChromeOptions()
-        driver = webdriver.Chrome()
-        driver.get('http://127.0.0.1:5000/')
-        driver.maximize_window()
+        hpage()
+
+    if 'news' in text:
+        newslist()
+
 
 def speech():
     r = sr.Recognizer()
