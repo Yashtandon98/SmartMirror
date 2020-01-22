@@ -1,7 +1,7 @@
 from flask import Flask, render_template
-from modules.weather.weather import query_api
+from .Modules.Weather.weather import query_api
 from pprint import pprint as pp
-from news import getnews
+from .Modules.News.news import getnews
 
 app = Flask(__name__)
 

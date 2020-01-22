@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import pyaudio
-from speak import hpage, newslist
+from ..Speak.speaker import *
 
 def process():
     while 1:
