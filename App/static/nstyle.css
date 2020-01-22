@@ -1,0 +1,13 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #000000;
+	color: white;
+}
+
+.news-on-page {
+	position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+}

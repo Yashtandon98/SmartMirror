@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='nstyle.css') }}">
+    </head>
+    <body>
+        <div class="news-on-page" id="nws">
+			{% for n in ndata %}
+			<h6>{{n[0]}}</h6>
+			<h6>{{n[1]}}</h6>
+			<h6>{{n[2]}}</h6>
+			<h6>{{n[3]}}</h6>
+			<h6>{{n[4]}}</h6>{% endfor %}
+		</div>
+    </body>
+</html>
