@@ -1,9 +1,18 @@
 from flask import Flask, render_template
-from .Modules.Weather.weather import query_api
-from .Modules.News.news import getnews
+from modules.weather.weather import query_api
 from pprint import pprint as pp
+from news import getnews
 
 app = Flask(__name__)
+
+@app.route('/news', methods = ['GET', 'POST'])
+def newsprint():
+    ndata = []
+    error = None
+    nresp = getnews()
+    if nresp:
+        ndata.append(nresp)
+        return render_template('news.html', ndata = ndata, error = error)
 
 @app.route('/', methods = ['GET', 'POST'])
 def webprint():
@@ -19,4 +28,4 @@ def webprint():
         ndata.append(nresp)
         if len(data) != 2:
             error = 'Bad Response from Weather API'
-            return render_template('home.html', data=data, ndata = ndata, error=error)
+            return render_template('home.html', data=data, ndata=ndata, error=error)
