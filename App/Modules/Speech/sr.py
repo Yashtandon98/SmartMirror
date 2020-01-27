@@ -10,8 +10,17 @@ def ptext(text):
     if 'home' in text:
         hpage()
 
-    if 'news' in text:
+    elif 'news' in text:
         newslist()
+
+    elif 'hello' in text:
+        wpage(text)
+
+    elif 'cricket' in text:
+        spage(text)
+
+    elif 'wiki' in text:
+        wikipage()
 
 
 def speech():
