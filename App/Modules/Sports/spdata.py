@@ -1,17 +1,17 @@
 import sports
 
-def sp(sport):
-    if sport == 'cricket':
+def sp(text):
+    if 'cricket' in text:
         cmatches()
-    elif sport == 'basketball':
+    elif 'basketball' in text:
         bkmatch()
-    elif sport == 'tennis':
+    elif 'tennis' in text:
         tmatch()
-    elif sport == 'hockey':
+    elif 'hockey' in text:
         hmatch()
-    elif sport == 'soccer':
+    elif 'soccer' in text:
         smatch()
-        
+
 def cmatches():
     try:
         matches = sports.get_sport(sports.CRICKET)
