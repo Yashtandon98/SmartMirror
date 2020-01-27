@@ -6,8 +6,7 @@ body {
 
 .news-on-page {
 	position: absolute;
+	top: 50%;
     left: 50%;
-    bottom: 10px;
     transform: translate(-50%, -50%);
-    margin: 0 auto;
 }
