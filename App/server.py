@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from .Modules.Weather.weather import query_api
 from pprint import pprint as pp
 from .Modules.News.news import getnews
-from .Modules.Speak.speaker import sdata, wikidata
 
 
 app = Flask(__name__)
@@ -18,25 +17,28 @@ def newsprint():
 
 @app.route('/weather', methods = ['GET', 'POST'])
 def weatherprint():
+    from .Modules.Speak.speaker import wedata
     data = []
     error = None
-    select = 'Chennai'
-    resp = query_api(select)
+    resp = wedata
+    pp(resp)
     if resp:
         data.append(resp)
         return render_template('weather.html', data = data, error = error)
 
 @app.route('/wiki', methods = ['GET', 'POST'])
 def wikiprint():
+    from .Modules.Speak.speaker import wikidata
     wdata = wikidata
     error = None
-    return render_template('news.html', wdata = wdata, error = error)
+    pp(wdata)
+    return render_template('wiki.html', wdata = wdata, error = error)
 
 @app.route('/sports', methods = ['GET', 'POST'])
 def sportsprint():
     ndata = sdata
     error = None
-    return render_template('news.html', ndata = ndata, error = error)
+    return render_template('sports.html', ndata = ndata, error = error)
 
 @app.route('/', methods = ['GET', 'POST'])
 def webprint():
