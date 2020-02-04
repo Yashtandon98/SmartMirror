@@ -14,6 +14,7 @@ driver.get('http://127.0.0.1:5000/')
 
 sdata = None
 wikidata = None
+wedata = None
 
 def spout(spdata):
     mirror = pyttsx3.init()
@@ -32,17 +33,18 @@ def hpage():
 
 def wpage(text):
     #loop to check city in text and then pass it too the function
-#    list = text.split()
-#    with open('C:/Users/Yash Tandon/Desktop/python course/basic projects/indiancities.txt','r') as f, open('cities.txt','w') as fo:
-#        for line in f:
-#            fo.write(line.replace('"', ' ').replace("'", " "))
-#   file = open('cities.txt')
-#    for cities in file:
-#        cities = cities.strip().split()
-#        for word in list:
-#            if word in cities:
-#                wdata = query_api('Chennai')
-    driver.get('http://127.0.0.1/5000/weather')
+    global wedata
+    list = text.split()
+    with open('C:/Users/Yash Tandon/Desktop/python course/basic projects/indiancities.txt','r') as f, open('cities.txt','w') as fo:
+        for line in f:
+            fo.write(line.replace('"', ' ').replace("'", " "))
+    file = open('cities.txt')
+    for cities in file:
+        cities = cities.strip().split()
+        for word in list:
+            if word in cities:
+                wedata = query_api(word)
+    driver.get('http://127.0.0.1:5000/weather')
 
 def spage(text):
     global sdata
@@ -57,10 +59,10 @@ def spage(text):
     elif 'soccer' in text:
         sdata = smatch()
     print(sdata)
-    driver.get('http://127.0.0.1/5000/sports')
+    driver.get('http://127.0.0.1:5000/sports')
 
 def wikipage(text):
     global wikidata
     select = text[5:]
     wikidata = getwiki(select)
-    driver.get('http://127.0.0.1/5000/wiki')
+    driver.get('http://127.0.0.1:5000/wiki')
