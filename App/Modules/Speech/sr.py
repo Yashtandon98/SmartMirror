@@ -13,14 +13,14 @@ def ptext(text):
     elif 'news' in text:
         newslist()
 
-    elif 'hello' in text:
+    elif 'weather' in text:
         wpage(text)
 
     elif 'cricket' in text:
         spage(text)
 
-    elif 'wiki' in text:
-        wikipage()
+    elif 'Wiki' in text:
+        wikipage(text)
 
 
 def speech():
