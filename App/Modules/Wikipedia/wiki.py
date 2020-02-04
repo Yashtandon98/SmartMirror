@@ -1,15 +1,15 @@
 import wikipediaapi
 
 def getwiki(select):
-    wikidata = {'title': None, 'summary': None}
+    wikidata = {'titlee': None, 'summaryy': None}
     title = None
     summary = None
     wiki = wikipediaapi.Wikipedia('en')
     page = wiki.page(select)
     status = page.exists()
     if status == True:
-        wikidata.update(title = page.title)
-        wikidata.update(summary = page.summary)
+        wikidata.update(titlee = page.title)
+        wikidata.update(summaryy = page.summary)
 
         return wikidata
     else:
