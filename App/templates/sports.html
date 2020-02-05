@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='sstyle.css') }}">
+    </head>
+    <body>
+        <div class="sports-on-page">
+			{% for s in spdata %}
+			<h1>{{ s[0] }}</h1>
+			<h1>{{ s[1] }}</h1>{% endfor %}
+		</div>
+    </body>
+</html>
