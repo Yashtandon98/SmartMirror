@@ -29,16 +29,24 @@ def weatherprint():
 @app.route('/wiki', methods = ['GET', 'POST'])
 def wikiprint():
     from .Modules.Speak.speaker import wikidata
-    wdata = wikidata
+    wdata = []
     error = None
-    pp(wdata)
-    return render_template('wiki.html', wdata = wdata, error = error)
+    resp = wikidata
+    pp(resp)
+    if resp:
+        wdata.append(resp)
+        return render_template('wiki.html', wdata = wdata, error = error)
 
 @app.route('/sports', methods = ['GET', 'POST'])
 def sportsprint():
-    ndata = sdata
+    from .Modules.Speak.speaker import sdata
+    spdata = []
     error = None
-    return render_template('sports.html', ndata = ndata, error = error)
+    resp = sdata
+    pp(resp)
+    if resp:
+        spdata.append(sdata)
+        return render_template('sports.html', spdata = spdata, error = error)
 
 @app.route('/', methods = ['GET', 'POST'])
 def webprint():

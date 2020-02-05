@@ -16,10 +16,10 @@ def ptext(text):
     elif 'weather' in text:
         wpage(text)
 
-    elif 'cricket' in text:
+    elif 'cricket' or 'soccer' or 'basketball' or 'tennis' in text:
         spage(text)
 
-    elif 'Wiki' in text:
+    elif 'Wikipedia' in text:
         wikipage(text)
 
 

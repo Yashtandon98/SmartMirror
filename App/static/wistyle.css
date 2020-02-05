@@ -1,0 +1,13 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #000000;
+	color: white;
+    text-align: center;
+}
+
+.wiki-on-page {
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
