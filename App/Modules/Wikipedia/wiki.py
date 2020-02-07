@@ -2,8 +2,6 @@ import wikipediaapi
 
 def getwiki(select):
     wikidata = {'titlee': None, 'summaryy': None}
-    title = None
-    summary = None
     wiki = wikipediaapi.Wikipedia('en')
     page = wiki.page(select)
     status = page.exists()

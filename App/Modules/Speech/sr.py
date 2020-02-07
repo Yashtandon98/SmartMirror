@@ -7,20 +7,22 @@ def process():
         speech()
 
 def ptext(text):
-    if 'home' in text:
-        hpage()
+    li = text.split()
+    for word in li:
+        if word == 'home':
+            hpage()
 
-    elif 'news' in text:
-        newslist()
+        elif word == 'news':
+            newslist()
 
-    elif 'weather' in text:
-        wpage(text)
+        elif word == 'weather':
+            wpage(text)
 
-    elif 'cricket' or 'soccer' or 'basketball' or 'tennis' in text:
-        spage(text)
+        elif word == 'Wiki':
+            wikipage(text)
 
-    elif 'Wikipedia' in text:
-        wikipage(text)
+        elif word == 'cricket' or word == 'soccer' or word == 'basketball' or word == 'tennis':
+            spage(text)
 
 
 def speech():
@@ -30,7 +32,7 @@ def speech():
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
         try:
-            text = r.recognize_google(audio, language="en-US")
+            text = r.recognize_google(audio, language="en-IN")
             print(text)
             ptext(text)
         except sr.UnknownValueError:
@@ -38,6 +40,5 @@ def speech():
 
         except sr.RequestError as e:
             print("request error")
-
-#while 1:
-#    speech()
+#    text = input('Speak up:')
+#    ptext(text)

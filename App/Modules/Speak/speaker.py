@@ -63,6 +63,8 @@ def spage(text):
 
 def wikipage(text):
     global wikidata
+    print("In Wiki")
     select = text[5:]
     wikidata = getwiki(select)
+    print(wikidata)
     driver.get('http://127.0.0.1:5000/wiki')

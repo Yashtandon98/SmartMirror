@@ -45,7 +45,7 @@ def sportsprint():
     resp = sdata
     pp(resp)
     if resp:
-        spdata.append(sdata)
+        spdata.append(resp)
         return render_template('sports.html', spdata = spdata, error = error)
 
 @app.route('/', methods = ['GET', 'POST'])
