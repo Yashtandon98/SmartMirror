@@ -22,11 +22,12 @@ def spout(spdata):
     mirror.say(spdata)
     mirror.runAndWait()
 
-def newslist():
+def newslist(text):
     ndata = getnews()
     driver.get('http://127.0.0.1:5000/news')
-    for news in ndata:
-        spout(news)
+    if 'show' or 'display' not in text:
+        for news in ndata:
+            spout(news)
 
 def hpage():
     driver.get('http://127.0.0.1:5000/')
@@ -44,7 +45,16 @@ def wpage(text):
         for word in list:
             if word in cities:
                 wedata = query_api(word)
+    weadata = []
+    weadata.append(wedata)
     driver.get('http://127.0.0.1:5000/weather')
+    if 'show' or 'display' not in text:
+        for we in weadata:
+            spout('the current temprature in')
+            spout(we['name'])
+            spout('is')
+            spout(we['main']['temp'])
+            spout('degree Celcius')
 
 def spage(text):
     global sdata
@@ -66,5 +76,10 @@ def wikipage(text):
     print("In Wiki")
     select = text[5:]
     wikidata = getwiki(select)
-    print(wikidata)
+    wdata = []
+    wdata.append(wikidata)
     driver.get('http://127.0.0.1:5000/wiki')
+    if 'show' or 'display' not in text:
+        for w in wdata:
+            spout(w['titlee'])
+            spout(w['summaryy'])
