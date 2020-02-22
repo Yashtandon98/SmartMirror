@@ -1,15 +1,21 @@
 import speech_recognition as sr
 import pyaudio
 from ..Speak.speaker import *
+import sys
+import time
 
 def process():
     while 1:
         speech()
 
 def ptext(text):
+    global result
     li = text.split()
     for word in li:
-        if word == 'home':
+        if word == 'login':
+            log()
+
+        elif word == 'home':
             hpage()
 
         elif word == 'news':
@@ -24,22 +30,28 @@ def ptext(text):
         elif word == 'cricket' or word == 'soccer' or word == 'basketball' or word == 'tennis':
             spage(text)
 
+        elif word == 'quit' or word == 'exit' or word == 'logout':
+            exi()
+
 
 def speech():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print('Speak up : ')
-        r.adjust_for_ambient_noise(source)
-        audio = r.listen(source)
-        try:
-            text = r.recognize_google(audio, language="en-IN")
-            print(text)
-            ptext(text)
-        except sr.UnknownValueError:
-            print('Sorry could not recognize your voice')
+    while True:
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            print('Speak up : ')
+            r.adjust_for_ambient_noise(source)
+            audio = r.listen(source)
+            try:
+                text = r.recognize_google(audio, language="en-IN")
+                print(text)
+                ptext(text)
+                if text == 'login':
+                    time.sleep(20)
+            except sr.UnknownValueError:
+                print('Sorry could not recognize your voice')
 
-        except sr.RequestError as e:
-            print("request error")
+            except sr.RequestError as e:
+                print("request error")
 #    text = input('Speak up:')
 #    try:
 #        ptext(text)
