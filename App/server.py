@@ -2,9 +2,19 @@ from flask import Flask, render_template
 from .Modules.Weather.weather import query_api
 from pprint import pprint as pp
 from .Modules.News.news import getnews
+from .Modules.date.dd import day
 
 
 app = Flask(__name__)
+
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    ndata = []
+    error = None
+    nresp = day()
+    if nresp:
+        ndata.append(nresp)
+        return render_template('login.html', ndata = ndata, error = error)
 
 @app.route('/news', methods = ['GET', 'POST'])
 def newsprint():
