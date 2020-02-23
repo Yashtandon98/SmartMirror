@@ -16,6 +16,10 @@ def login():
         ndata.append(nresp)
         return render_template('login.html', ndata = ndata, error = error)
 
+@app.route('/signup', methods = ['GET', 'POST'])
+def signup():
+    return rend_template('signup.html')
+    
 @app.route('/news', methods = ['GET', 'POST'])
 def newsprint():
     ndata = []
