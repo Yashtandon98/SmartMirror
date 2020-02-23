@@ -3,6 +3,7 @@ import pyaudio
 from ..Speak.speaker import *
 import sys
 import time
+import os
 
 def process():
     while 1:
@@ -14,6 +15,9 @@ def ptext(text):
     for word in li:
         if word == 'login':
             log()
+
+        elif word == 'signup':
+            sign()
 
         elif word == 'home':
             hpage()
@@ -37,6 +41,7 @@ def ptext(text):
 def speech():
     while True:
         r = sr.Recognizer()
+        fname = "C:/Users/Yash Tandon/Desktop/python course/SmartMirror/SmartMirror/App/Modules/facerecog/recognizer/trainingData.yml"
         with sr.Microphone() as source:
             print('Speak up : ')
             r.adjust_for_ambient_noise(source)
@@ -45,7 +50,7 @@ def speech():
                 text = r.recognize_google(audio, language="en-IN")
                 print(text)
                 ptext(text)
-                if text == 'login':
+                if not os.path.isfile(fname) and (text == 'login' or text == 'signup') :
                     time.sleep(20)
             except sr.UnknownValueError:
                 print('Sorry could not recognize your voice')

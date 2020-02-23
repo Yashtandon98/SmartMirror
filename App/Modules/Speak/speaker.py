@@ -6,6 +6,8 @@ from ..Sports.spdata import *
 from ..Weather.weather import query_api
 from ..Wikipedia.wiki import getwiki
 from ..facerecog.recognizer import recog
+from ..facerecog.data_gatering import fdata
+from ..facerecog.trainer import train
 
 chromeOptions = Options()
 #chromeOptions.add_argument("--kiosk")
@@ -27,6 +29,15 @@ def log():
     else:
         spout("Sorry, Couldn't recognize you")
         spout("Please make sure that you are registered")
+
+def sign():
+    if user != None:
+        driver.get('http://127.0.0.1:5000/signup')
+        spout('Please stand in front of the mirror and look at the camera')
+        fdata()
+        train()
+    else:
+        spout('One can only signup when a registered person is logged in!')
 
 def spout(spdata):
     mirror = pyttsx3.init()
