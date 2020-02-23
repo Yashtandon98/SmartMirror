@@ -2,14 +2,12 @@ import speech_recognition as sr
 import pyaudio
 
 def speech():
-    print('srr')
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print('Speak up : ')
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
         try:
-            print('srrtry')
             text = r.recognize_google(audio, language="en-IN")
             print(text)
             return text
