@@ -18,8 +18,8 @@ def login():
 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    return rend_template('signup.html')
-    
+    return render_template('signup.html')
+
 @app.route('/news', methods = ['GET', 'POST'])
 def newsprint():
     ndata = []
