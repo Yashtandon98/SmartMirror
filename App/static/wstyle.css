@@ -1,5 +1,12 @@
+@font-face {
+	font-family: 'Static';
+	src: local('Static Bold'),
+		local('Static-Bold'),
+		url('Static-Bold.ttf');
+}
+
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Static', sans-serif;
 	text-align: center;
 	background-color: #000000;
 
